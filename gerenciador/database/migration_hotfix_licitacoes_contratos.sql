@@ -11,17 +11,26 @@
 -- todos os comandos são condicionais (IF NOT EXISTS / INSERT IGNORE) e
 -- não afetam dados já existentes.
 --
--- Requer MySQL 8.0.29+ ou MariaDB 10.0+ (suporte a "ADD COLUMN IF NOT
--- EXISTS"). Se o seu servidor for mais antigo e o comando abaixo der
--- erro de sintaxe, remova o "IF NOT EXISTS" da linha do ALTER TABLE.
+-- Compatível com qualquer versão de MySQL/MariaDB: a checagem de coluna
+-- existente é feita via information_schema + SQL dinâmico (PREPARE/
+-- EXECUTE), em vez de "ADD COLUMN IF NOT EXISTS" (que só existe a
+-- partir do MySQL 8.0.29).
 -- =====================================================================
 USE portal_camara;
 
 -- ---------------------------------------------------------------------
 -- 1) coluna que faltava em `licitacoes`
 -- ---------------------------------------------------------------------
-ALTER TABLE licitacoes
-  ADD COLUMN IF NOT EXISTS status TINYINT(1) NOT NULL DEFAULT 1;
+SET @coluna_existe := (
+  SELECT COUNT(*) FROM information_schema.COLUMNS
+  WHERE TABLE_SCHEMA = DATABASE() AND TABLE_NAME = 'licitacoes' AND COLUMN_NAME = 'status'
+);
+SET @sql := IF(@coluna_existe = 0,
+  'ALTER TABLE licitacoes ADD COLUMN status TINYINT(1) NOT NULL DEFAULT 1',
+  'SELECT 1');
+PREPARE stmt FROM @sql;
+EXECUTE stmt;
+DEALLOCATE PREPARE stmt;
 
 -- ---------------------------------------------------------------------
 -- 2) tabelas de apoio usadas por gerenciador/contrato-form.php
