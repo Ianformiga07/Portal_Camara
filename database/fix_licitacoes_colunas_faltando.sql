@@ -6,16 +6,19 @@
 -- Isso indica que gerenciador/database/migration_licitacoes_tce.sql não
 -- chegou a rodar por completo no seu banco.
 --
--- Seguro para rodar mesmo que parte já exista (usa IF NOT EXISTS em
--- tudo) — não apaga nem repete nada que já esteja funcionando.
+-- Versão compatível com versões mais antigas do MySQL (sem o "ADD COLUMN
+-- IF NOT EXISTS", que só existe a partir do MySQL 8.0.29). Rode só uma
+-- vez: como aqui não tem IF NOT EXISTS nas colunas, rodar de novo depois
+-- que elas já existirem vai dar erro "Duplicate column name" — o que é
+-- só um sinal de que já está tudo certo, pode ignorar.
 -- =====================================================================
 
 USE portal_camara;
 
 ALTER TABLE licitacoes
-  ADD COLUMN IF NOT EXISTS numero_licitacao VARCHAR(20) NULL AFTER numero_processo,
-  ADD COLUMN IF NOT EXISTS ano_exercicio YEAR NULL AFTER numero_licitacao,
-  ADD COLUMN IF NOT EXISTS id_pregoeiro INT UNSIGNED NULL AFTER id_situacao;
+  ADD COLUMN numero_licitacao VARCHAR(20) NULL AFTER numero_processo,
+  ADD COLUMN ano_exercicio YEAR NULL AFTER numero_licitacao,
+  ADD COLUMN id_pregoeiro INT UNSIGNED NULL AFTER id_situacao;
 
 CREATE TABLE IF NOT EXISTS licitacoes_participantes (
   id             INT UNSIGNED AUTO_INCREMENT PRIMARY KEY,
