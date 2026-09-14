@@ -1,0 +1,20 @@
+PASTA: vereadores (Fotos dos Vereadores)
+=========================================
+Formatos aceitos: .jpg, .jpeg, .webp, .png
+Tamanho recomendado: 400x400 pixels (foto quadrada/rosto)
+Peso máximo sugerido: 100KB por imagem
+
+Sugestão de nomenclatura (usar nome-sobrenome em minúsculas, sem acentos):
+  joao-silva.jpg
+  maria-oliveira.jpg
+  carlos-santos.jpg
+  ana-rodrigues.jpg
+  etc.
+
+No index.php substitua o placeholder:
+  <div class="vereador-foto-placeholder">
+    <i class="fas fa-user"></i>
+  </div>
+
+Por:
+  <img src="assets/img/vereadores/joao-silva.jpg" alt="João da Silva" class="vereador-foto">

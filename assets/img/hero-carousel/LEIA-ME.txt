@@ -1,0 +1,15 @@
+PASTA: hero-carousel (Slides do Banner Principal)
+=================================================
+Formatos aceitos: .jpg, .jpeg, .webp, .png
+Tamanho recomendado: 1920x800 pixels (ou 1920x600 no mínimo)
+Proporção: 16:9 ou 2.4:1 (formato wide/panorâmico)
+Qualidade: Alta resolução — essas imagens cobrem toda a largura da tela
+Peso máximo sugerido: 500KB por imagem (use compressão JPG 80-85%)
+
+Nomes dos arquivos (já referenciados no index.php):
+  slide1.jpg  — Slide 1 (Transparência e Democracia)
+  slide2.jpg  — Slide 2 (Diário Oficial Eletrônico)
+  slide3.jpg  — Slide 3 (Audiências Públicas)
+
+Dica: Use imagens institucionais da câmara, plenário, sessões, cidade de Ananás.
+O overlay verde escuro já é aplicado automaticamente via CSS — imagens mais claras ficam melhores.

@@ -1,0 +1,14 @@
+PASTA: noticias (Imagens das Notícias)
+=======================================
+Formatos aceitos: .jpg, .jpeg, .webp, .png
+Tamanho recomendado: 800x500 pixels (proporção 16:10)
+Peso máximo sugerido: 200KB por imagem
+
+Sugestão de nomenclatura:
+  noticia-001.jpg
+  noticia-002.jpg
+  sessao-plenaria-abril-2025.jpg
+  etc.
+
+Referência no código (index.php):
+  <img src="assets/img/noticias/noticia-001.jpg" alt="Título da notícia">

@@ -1,0 +1,18 @@
+PASTA: documentos/diario-oficial (PDFs do Diário Oficial)
+==========================================================
+Formato: apenas .pdf (com assinatura digital quando houver)
+Nomenclatura obrigatória (para facilitar automação futura):
+  diario-082-2025.pdf   → Edição 082, ano 2025
+  diario-081-2025.pdf   → Edição 081, ano 2025
+  diario-080-2025.pdf   → Edição 080, ano 2025
+
+Como referenciar no index.php (botões Ler e Baixar):
+  <a href="documentos/diario-oficial/diario-082-2025.pdf" target="_blank" class="btn-ler">
+    <i class="fas fa-eye"></i> Ler
+  </a>
+  <a href="documentos/diario-oficial/diario-082-2025.pdf" download class="btn-baixar">
+    <i class="fas fa-download"></i> Baixar
+  </a>
+
+ATENÇÃO: Para visualização inline (embed) no navegador, use target="_blank".
+Para forçar o download, use o atributo download no link.
