@@ -4,30 +4,30 @@
    ========================================================================== */
 
 :root {
-  --verde-escuro:  #2f5c46;
-  --verde-medio:   #3f7d5c;
-  --verde-claro:   #5fa47c;
-  --verde-vivo:    #479169;
-  --verde-suave:   #eff6f2;
-  --verde-borda:   #cbe3d5;
-  --dourado:       #bf9d55;
-  --dourado-claro: #ecdcae;
-  --cinza-escuro:  #2b3230;
-  --cinza-medio:   #5a635e;
-  --cinza-claro:   #f7f8f7;
-  --cinza-borda:   #e8eae8;
+  --verde-escuro:  #43715a;
+  --verde-medio:   #5a9075;
+  --verde-claro:   #86b79c;
+  --verde-vivo:    #5a9075;
+  --verde-suave:   #f2f8f4;
+  --verde-borda:   #dcede3;
+  --dourado:       #c9ae82;
+  --dourado-claro: #f3e9d3;
+  --cinza-escuro:  #454e49;
+  --cinza-medio:   #78847e;
+  --cinza-claro:   #faf9f6;
+  --cinza-borda:   #ececea;
   --branco:        #ffffff;
-  --texto-escuro:  #2a322d;
-  --texto-medio:   #5c6b65;
-  --texto-claro:   #8e9d96;
-  --vermelho:      #bd4c40;
-  --vermelho-suave:#fbeceb;
-  --radius-sm: 9px;
-  --radius-md: 15px;
-  --radius-lg: 22px;
-  --sombra-sm: 0 1px 4px rgba(43, 50, 48, 0.05), 0 1px 2px rgba(43, 50, 48, 0.06);
-  --sombra:    0 6px 20px rgba(43, 50, 48, 0.07), 0 1px 4px rgba(43, 50, 48, 0.05);
-  --sombra-lg: 0 16px 40px rgba(43, 50, 48, 0.12);
+  --texto-escuro:  #454e49;
+  --texto-medio:   #78847e;
+  --texto-claro:   #a4b0aa;
+  --vermelho:      #bd5c4f;
+  --vermelho-suave:#fbeeec;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --sombra-sm: 0 1px 4px rgba(69, 78, 73, 0.04), 0 1px 2px rgba(69, 78, 73, 0.05);
+  --sombra:    0 6px 22px rgba(69, 78, 73, 0.06), 0 1px 4px rgba(69, 78, 73, 0.04);
+  --sombra-lg: 0 18px 44px rgba(69, 78, 73, 0.10);
   --sidebar-w: 264px;
   --topbar-h: 64px;
   --transicao: all .18s cubic-bezier(.4,0,.2,1);
@@ -38,7 +38,7 @@
 
 body {
   margin: 0;
-  font-family: 'Plus Jakarta Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
+  font-family: 'Nunito Sans', 'Segoe UI', system-ui, -apple-system, sans-serif;
   background: var(--cinza-claro);
   color: var(--texto-escuro);
   font-size: 14px;
