@@ -1,1 +1,7 @@
 gerenciador/database/criar_usuario_admin.sql
+
+# Assinatura digital: senha do certificado, nunca vai para o repositório
+gerenciador/config/assinatura.php
+# Certificado propriamente dito, caso alguém salve dentro do projeto por engano
+*.pfx
+*.p12

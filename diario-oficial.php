@@ -14,8 +14,9 @@ $anosDisponiveis = [];
 
 if ($pdo) {
     $diarioAtual = $pdo->query(
-        "SELECT d.* FROM documentos d
+        "SELECT d.*, eo.hash_sha256, eo.assinado_icp FROM documentos d
          JOIN categorias_documentos c ON c.id_categoria = d.id_categoria
+         LEFT JOIN diario_oficial_edicoes eo ON eo.id_documento = d.id_documento
          WHERE c.slug = 'diario-oficial' AND d.status = 1
          ORDER BY d.data_publicacao DESC LIMIT 1"
     )->fetch();
@@ -35,9 +36,11 @@ if ($pdo) {
     }
     $whereSql = 'WHERE ' . implode(' AND ', $condicoes);
 
-    $sql = "SELECT d.id_documento, d.numero_documento, d.titulo, d.data_publicacao, d.arquivo
+    $sql = "SELECT d.id_documento, d.numero_documento, d.titulo, d.data_publicacao, d.arquivo,
+                   eo.hash_sha256, eo.assinado_icp
             FROM documentos d
             JOIN categorias_documentos c ON c.id_categoria = d.id_categoria
+            LEFT JOIN diario_oficial_edicoes eo ON eo.id_documento = d.id_documento
             $whereSql
             ORDER BY d.data_publicacao DESC";
     $stmt = $pdo->prepare($sql);
@@ -69,6 +72,16 @@ include 'includes/pagina-header.php';
             <a href="gerenciador/assets/uploads/documentos/<?= htmlspecialchars($diarioAtual['arquivo']) ?>" target="_blank" class="btn-ler"><i class="fas fa-book-open"></i> Ler</a>
             <a href="gerenciador/assets/uploads/documentos/<?= htmlspecialchars($diarioAtual['arquivo']) ?>" download class="btn-baixar"><i class="fas fa-download"></i> Baixar PDF</a>
           </div>
+          <?php if ($diarioAtual['hash_sha256']): ?>
+            <p style="margin-top:.75rem; font-size:.78rem; color:var(--texto-claro);">
+              <?php if ($diarioAtual['assinado_icp']): ?>
+                <i class="fas fa-signature"></i> Documento assinado digitalmente (ICP-Brasil).
+              <?php else: ?>
+                <i class="fas fa-fingerprint"></i> Integridade verificável por hash SHA-256.
+              <?php endif; ?>
+              <code style="word-break:break-all;"><?= htmlspecialchars($diarioAtual['hash_sha256']) ?></code>
+            </p>
+          <?php endif; ?>
         <?php endif; ?>
       </div>
     <?php endif; ?>
@@ -119,6 +132,11 @@ include 'includes/pagina-header.php';
                     <?php if ($e['arquivo']): ?>
                       <a href="gerenciador/assets/uploads/documentos/<?= htmlspecialchars($e['arquivo']) ?>" target="_blank" title="Visualizar" onclick="event.stopPropagation()"><i class="fas fa-eye"></i></a>
                       <a href="gerenciador/assets/uploads/documentos/<?= htmlspecialchars($e['arquivo']) ?>" download title="Download" onclick="event.stopPropagation()"><i class="fas fa-download"></i></a>
+                      <?php if ($e['assinado_icp']): ?>
+                        <i class="fas fa-signature" title="Assinado digitalmente (ICP-Brasil)" style="color:var(--verde-medio);"></i>
+                      <?php elseif ($e['hash_sha256']): ?>
+                        <i class="fas fa-fingerprint" title="Hash de integridade: <?= htmlspecialchars($e['hash_sha256']) ?>" style="color:var(--texto-claro);"></i>
+                      <?php endif; ?>
                     <?php else: ?>
                       <span style="font-size:.78rem; color:var(--texto-claro);">Sem arquivo</span>
                     <?php endif; ?>

@@ -32,7 +32,7 @@ $fotoUsuario = !empty($usuario['foto_perfil'])
     <a href="mesa-diretora.php"><i class="fa-solid fa-people-roof"></i> Mesa Diretora</a>
     <a href="comissoes.php"><i class="fa-solid fa-sitemap"></i> Comissões</a>
     <a href="noticias.php"><i class="fa-solid fa-newspaper"></i> Notícias</a>
-    <a href="documentos.php?categoria=diario-oficial"><i class="fa-solid fa-file-lines"></i> Diário Oficial</a>
+    <a href="diario-oficial-edicoes.php"><i class="fa-solid fa-file-lines"></i> Diário Oficial</a>
     <a href="documentos.php"><i class="fa-solid fa-gavel"></i> Legislação</a>
 
     <div class="grupo-titulo">Compras e Licitações</div>
