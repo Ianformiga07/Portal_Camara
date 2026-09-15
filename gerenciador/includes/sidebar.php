@@ -28,10 +28,13 @@ $fotoUsuario = !empty($usuario['foto_perfil'])
 
     <div class="grupo-titulo">Institucional</div>
     <a href="a-camara.php"><i class="fa-solid fa-landmark-dome"></i> A Câmara</a>
+    <a href="institucional.php"><i class="fa-solid fa-file-contract"></i> Informações Institucionais</a>
     <a href="vereadores.php"><i class="fa-solid fa-users"></i> Vereadores</a>
     <a href="mesa-diretora.php"><i class="fa-solid fa-people-roof"></i> Mesa Diretora</a>
     <a href="comissoes.php"><i class="fa-solid fa-sitemap"></i> Comissões</a>
     <a href="noticias.php"><i class="fa-solid fa-newspaper"></i> Notícias</a>
+    <a href="hero-slides.php"><i class="fa-solid fa-images"></i> Banner Principal</a>
+    <a href="videos-sessoes.php"><i class="fa-solid fa-video"></i> Vídeos das Sessões</a>
     <a href="documentos.php?categoria=diario-oficial"><i class="fa-solid fa-file-lines"></i> Diário Oficial</a>
     <a href="documentos.php"><i class="fa-solid fa-gavel"></i> Legislação</a>
 
@@ -40,6 +43,12 @@ $fotoUsuario = !empty($usuario['foto_perfil'])
     <a href="contratos.php"><i class="fa-solid fa-file-signature"></i> Contratos</a>
     <a href="fornecedores.php"><i class="fa-solid fa-building"></i> Fornecedores</a>
     <a href="compras.php"><i class="fa-solid fa-cart-shopping"></i> Compras e Suprimentos</a>
+    <a href="obras.php"><i class="fa-solid fa-helmet-safety"></i> Obras</a>
+    <a href="licitantes-sancionados.php"><i class="fa-solid fa-ban"></i> Licitantes Sancionados</a>
+
+    <div class="grupo-titulo">Finanças e Patrimônio</div>
+    <a href="execucao-orcamentaria.php"><i class="fa-solid fa-sack-dollar"></i> Receitas e Despesas</a>
+    <a href="patrimonio.php"><i class="fa-solid fa-boxes-stacked"></i> Patrimônio</a>
 
     <div class="grupo-titulo">Atendimento</div>
     <a href="manifestacoes.php"><i class="fa-solid fa-comments"></i> Ouvidoria</a>
@@ -49,6 +58,7 @@ $fotoUsuario = !empty($usuario['foto_perfil'])
     <div class="grupo-titulo">Administração</div>
     <a href="usuarios.php"><i class="fa-solid fa-user-shield"></i> Usuários e Permissões</a>
     <a href="servidores.php"><i class="fa-solid fa-id-card"></i> Recursos Humanos</a>
+    <a href="rh-informacoes.php"><i class="fa-solid fa-id-card-clip"></i> RH — Cargos e Remuneração</a>
     <?php endif; ?>
   </nav>
 </aside>

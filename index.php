@@ -3,6 +3,11 @@ $page_title = 'Câmara Municipal de Ananás — Portal Institucional';
 include 'includes/header.php';
 require_once 'includes/funcoes.php';
 
+// --- Slides do banner principal (Hero) ---
+$heroSlides = $pdo
+    ? $pdo->query("SELECT * FROM hero_slides WHERE status = 1 ORDER BY ordem ASC, id_slide ASC")->fetchAll()
+    : [];
+
 // --- Notícias (destaque + recentes) ---
 $noticiaPrincipal = null;
 $noticiasRecentes = [];
@@ -72,39 +77,41 @@ if ($pdo) {
      ===================================================================== -->
 <section class="hero-carousel" id="banner" aria-label="Destaques">
 
+<?php if (!empty($heroSlides)): ?>
+  <?php foreach ($heroSlides as $i => $s): ?>
+    <div class="slide<?= $i === 0 ? ' active' : '' ?>" style="background-image: url('<?= htmlspecialchars($s['imagem'] ? 'gerenciador/assets/uploads/hero/' . $s['imagem'] : 'assets/img/hero-carousel/slide1.jpg') ?>');">
+      <div class="slide-overlay"></div>
+      <div class="slide-content">
+        <h2><?= htmlspecialchars($s['titulo']) ?></h2>
+        <?php if ($s['texto']): ?>
+          <p><?= htmlspecialchars($s['texto']) ?></p>
+        <?php endif; ?>
+        <?php if ($s['link_botao'] && $s['texto_botao']): ?>
+          <a href="<?= htmlspecialchars($s['link_botao']) ?>" class="btn-slide">
+            <i class="fas <?= htmlspecialchars($s['icone_botao'] ?: 'fa-arrow-right') ?>"></i> <?= htmlspecialchars($s['texto_botao']) ?>
+          </a>
+        <?php endif; ?>
+      </div>
+    </div>
+  <?php endforeach; ?>
+<?php else: ?>
+  <!-- Nenhum slide cadastrado no gerenciador ainda: fallback estático -->
   <div class="slide active" style="background-image: url('assets/img/hero-carousel/slide1.jpg');">
     <div class="slide-overlay"></div>
     <div class="slide-content">
       <h2>Transparência e Democracia a Serviço do Cidadão</h2>
       <p>Acompanhe as atividades legislativas, sessões plenárias e decisões que moldam o futuro de Ananás.</p>
-      <a href="sessoes.php" class="btn-slide"><i class="fas fa-play-circle"></i> Ver Sessões ao Vivo</a>
     </div>
   </div>
-
-  <div class="slide" style="background-image: url('assets/img/hero-carousel/slide2.jpg');">
-    <div class="slide-overlay"></div>
-    <div class="slide-content">
-      <h2>Diário Oficial Eletrônico</h2>
-      <p>Acesse publicações oficiais, atos administrativos e normativos em tempo real, com validade jurídica.</p>
-      <a href="diario-oficial.php" class="btn-slide"><i class="fas fa-newspaper"></i> Acessar Diário</a>
-    </div>
-  </div>
-
-  <div class="slide" style="background-image: url('assets/img/hero-carousel/slide3.jpg');">
-    <div class="slide-overlay"></div>
-    <div class="slide-content">
-      <h2>Participe das Audiências Públicas</h2>
-      <p>Sua voz importa! Participe das audiências públicas e contribua com o processo legislativo do município.</p>
-      <a href="audiencias.php" class="btn-slide"><i class="fas fa-users"></i> Saiba Como Participar</a>
-    </div>
-  </div>
+<?php endif; ?>
 
   <div class="carousel-controles">
     <button class="carousel-prev" aria-label="Anterior"><i class="fas fa-chevron-left"></i></button>
     <div class="carousel-dots">
-      <button class="dot active" aria-label="Slide 1"></button>
-      <button class="dot" aria-label="Slide 2"></button>
-      <button class="dot" aria-label="Slide 3"></button>
+      <?php $totalSlides = max(1, count($heroSlides)); ?>
+      <?php for ($i = 0; $i < $totalSlides; $i++): ?>
+        <button class="dot<?= $i === 0 ? ' active' : '' ?>" aria-label="Slide <?= $i + 1 ?>"></button>
+      <?php endfor; ?>
     </div>
     <button class="carousel-next" aria-label="Próximo"><i class="fas fa-chevron-right"></i></button>
   </div>

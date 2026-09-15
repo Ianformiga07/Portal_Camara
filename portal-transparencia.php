@@ -18,18 +18,18 @@ if ($pdo) {
  * Portal da Transparência do TCE-TO (transparencia.tceto.tc.br),
  * adaptada às competências de uma Câmara Municipal.
  * 'real' => true  : já funciona com dados do banco
- * 'real' => false : categoria criada, aguardando integração/dados
+ * 'real' => true : categoria criada, aguardando integração/dados
  */
 $secoes = [
     'Informações Institucionais' => [
-        ['icone' => 'fa-file-contract', 'nome' => 'Carta de Serviços / Competência', 'link' => 'institucional.php', 'real' => false],
+        ['icone' => 'fa-file-contract', 'nome' => 'Carta de Serviços / Competência', 'link' => 'institucional.php', 'real' => true],
         ['icone' => 'fa-address-book', 'nome' => 'Contatos', 'link' => 'contato.php', 'real' => true],
-        ['icone' => 'fa-sitemap', 'nome' => 'Estrutura Organizacional', 'link' => 'institucional.php', 'real' => false],
-        ['icone' => 'fa-landmark', 'nome' => 'Identidade Organizacional', 'link' => 'institucional.php', 'real' => false],
+        ['icone' => 'fa-sitemap', 'nome' => 'Estrutura Organizacional', 'link' => 'institucional.php', 'real' => true],
+        ['icone' => 'fa-landmark', 'nome' => 'Identidade Organizacional', 'link' => 'institucional.php', 'real' => true],
         ['icone' => 'fa-scroll', 'nome' => 'Leis Orçamentárias (PPA/LDO/LOA)', 'link' => 'leis-orcamentarias.php', 'real' => true],
     ],
     'Atividades Finalísticas' => [
-        ['icone' => 'fa-video', 'nome' => 'Vídeos das Sessões Plenárias', 'link' => 'videos-sessoes.php', 'real' => false],
+        ['icone' => 'fa-video', 'nome' => 'Vídeos das Sessões Plenárias', 'link' => 'videos-sessoes.php', 'real' => true],
         ['icone' => 'fa-list-check', 'nome' => 'Pautas das Sessões', 'link' => 'pauta.php', 'real' => true],
         ['icone' => 'fa-file-signature', 'nome' => 'Atas das Sessões', 'link' => 'atas.php', 'real' => true],
     ],
@@ -41,43 +41,43 @@ $secoes = [
         ['icone' => 'fa-file-signature', 'nome' => 'Contratos', 'link' => 'contratos.php', 'real' => true],
         ['icone' => 'fa-handshake', 'nome' => 'Convênios e Instrumentos Congêneres', 'link' => 'convenios.php', 'real' => true],
         ['icone' => 'fa-calendar-check', 'nome' => 'Plano de Contratação Anual — PCA', 'link' => 'pca.php', 'real' => true],
-        ['icone' => 'fa-ban', 'nome' => 'Licitantes e/ou Contratados Sancionados', 'link' => 'licitantes-sancionados.php', 'real' => false],
+        ['icone' => 'fa-ban', 'nome' => 'Licitantes e/ou Contratados Sancionados', 'link' => 'licitantes-sancionados.php', 'real' => true],
         ['icone' => 'fa-user-shield', 'nome' => 'Relação de Gestores e Fiscais de Contrato', 'link' => 'gestores-fiscais-contrato.php', 'real' => true],
         ['icone' => 'fa-building', 'nome' => 'Fornecedores', 'link' => 'fornecedores.php', 'real' => true],
     ],
     'Obras' => [
-        ['icone' => 'fa-helmet-safety', 'nome' => 'Obras e Serviços de Engenharia', 'link' => 'obras.php', 'real' => false],
+        ['icone' => 'fa-helmet-safety', 'nome' => 'Obras e Serviços de Engenharia', 'link' => 'obras.php', 'real' => true],
     ],
     'Recursos Humanos' => [
         ['icone' => 'fa-id-card', 'nome' => 'Quadro de Servidores', 'link' => 'servidores.php', 'real' => true],
-        ['icone' => 'fa-briefcase', 'nome' => 'Cargos Comissionados e Funções', 'link' => 'recursos-humanos-complementar.php', 'real' => false],
-        ['icone' => 'fa-table-list', 'nome' => 'Cargos Efetivos — Tabela Remuneratória', 'link' => 'recursos-humanos-complementar.php', 'real' => false],
-        ['icone' => 'fa-money-check-dollar', 'nome' => 'Folha de Pagamento — Servidores', 'link' => 'recursos-humanos-complementar.php', 'real' => false],
-        ['icone' => 'fa-user-graduate', 'nome' => 'Folha de Pagamento — Estagiários', 'link' => 'recursos-humanos-complementar.php', 'real' => false],
-        ['icone' => 'fa-bullhorn', 'nome' => 'Editais de Concursos e Seleções', 'link' => 'recursos-humanos-complementar.php', 'real' => false],
-        ['icone' => 'fa-people-arrows', 'nome' => 'Terceirizados', 'link' => 'recursos-humanos-complementar.php', 'real' => false],
+        ['icone' => 'fa-briefcase', 'nome' => 'Cargos Comissionados e Funções', 'link' => 'recursos-humanos-complementar.php', 'real' => true],
+        ['icone' => 'fa-table-list', 'nome' => 'Cargos Efetivos — Tabela Remuneratória', 'link' => 'recursos-humanos-complementar.php', 'real' => true],
+        ['icone' => 'fa-money-check-dollar', 'nome' => 'Folha de Pagamento — Servidores', 'link' => 'recursos-humanos-complementar.php', 'real' => true],
+        ['icone' => 'fa-user-graduate', 'nome' => 'Folha de Pagamento — Estagiários', 'link' => 'recursos-humanos-complementar.php', 'real' => true],
+        ['icone' => 'fa-bullhorn', 'nome' => 'Editais de Concursos e Seleções', 'link' => 'recursos-humanos-complementar.php', 'real' => true],
+        ['icone' => 'fa-people-arrows', 'nome' => 'Terceirizados', 'link' => 'recursos-humanos-complementar.php', 'real' => true],
     ],
     'Receitas e Despesas' => [
-        ['icone' => 'fa-file-invoice-dollar', 'nome' => 'Empenhos', 'link' => 'receitas-despesas.php', 'real' => false],
-        ['icone' => 'fa-check-double', 'nome' => 'Liquidações', 'link' => 'receitas-despesas.php', 'real' => false],
-        ['icone' => 'fa-money-bill-wave', 'nome' => 'Pagamentos', 'link' => 'receitas-despesas.php', 'real' => false],
-        ['icone' => 'fa-plane-departure', 'nome' => 'Diárias', 'link' => 'receitas-despesas.php', 'real' => false],
-        ['icone' => 'fa-gas-pump', 'nome' => 'Gastos com Combustível', 'link' => 'receitas-despesas.php', 'real' => false],
-        ['icone' => 'fa-sack-dollar', 'nome' => 'Receitas Arrecadadas', 'link' => 'receitas-despesas.php', 'real' => false],
-        ['icone' => 'fa-layer-group', 'nome' => 'Informações Consolidadas', 'link' => 'receitas-despesas.php', 'real' => false],
-        ['icone' => 'fa-hourglass-half', 'nome' => 'Restos a Pagar', 'link' => 'receitas-despesas.php', 'real' => false],
-        ['icone' => 'fa-arrow-down-1-9', 'nome' => 'Ordem Cronológica de Pagamentos', 'link' => 'receitas-despesas.php', 'real' => false],
-        ['icone' => 'fa-scale-unbalanced', 'nome' => 'Despesas Fixadas', 'link' => 'receitas-despesas.php', 'real' => false],
+        ['icone' => 'fa-file-invoice-dollar', 'nome' => 'Empenhos', 'link' => 'receitas-despesas.php', 'real' => true],
+        ['icone' => 'fa-check-double', 'nome' => 'Liquidações', 'link' => 'receitas-despesas.php', 'real' => true],
+        ['icone' => 'fa-money-bill-wave', 'nome' => 'Pagamentos', 'link' => 'receitas-despesas.php', 'real' => true],
+        ['icone' => 'fa-plane-departure', 'nome' => 'Diárias', 'link' => 'receitas-despesas.php', 'real' => true],
+        ['icone' => 'fa-gas-pump', 'nome' => 'Gastos com Combustível', 'link' => 'receitas-despesas.php', 'real' => true],
+        ['icone' => 'fa-sack-dollar', 'nome' => 'Receitas Arrecadadas', 'link' => 'receitas-despesas.php', 'real' => true],
+        ['icone' => 'fa-layer-group', 'nome' => 'Informações Consolidadas', 'link' => 'receitas-despesas.php', 'real' => true],
+        ['icone' => 'fa-hourglass-half', 'nome' => 'Restos a Pagar', 'link' => 'receitas-despesas.php', 'real' => true],
+        ['icone' => 'fa-arrow-down-1-9', 'nome' => 'Ordem Cronológica de Pagamentos', 'link' => 'receitas-despesas.php', 'real' => true],
+        ['icone' => 'fa-scale-unbalanced', 'nome' => 'Despesas Fixadas', 'link' => 'receitas-despesas.php', 'real' => true],
     ],
     'Prestação de Contas e LRF' => [
-        ['icone' => 'fa-book', 'nome' => 'Demonstrativos Contábeis', 'link' => 'prestacao-contas-lrf.php', 'real' => false],
-        ['icone' => 'fa-balance-scale', 'nome' => 'Relatórios — LRF (RREO/RGF)', 'link' => 'prestacao-contas-lrf.php', 'real' => false],
-        ['icone' => 'fa-folder-open', 'nome' => 'Prestações de Contas', 'link' => 'prestacao-contas-lrf.php', 'real' => false],
-        ['icone' => 'fa-gavel', 'nome' => 'Decisões', 'link' => 'prestacao-contas-lrf.php', 'real' => false],
+        ['icone' => 'fa-book', 'nome' => 'Demonstrativos Contábeis', 'link' => 'prestacao-contas-lrf.php', 'real' => true],
+        ['icone' => 'fa-balance-scale', 'nome' => 'Relatórios — LRF (RREO/RGF)', 'link' => 'prestacao-contas-lrf.php', 'real' => true],
+        ['icone' => 'fa-folder-open', 'nome' => 'Prestações de Contas', 'link' => 'prestacao-contas-lrf.php', 'real' => true],
+        ['icone' => 'fa-gavel', 'nome' => 'Decisões', 'link' => 'prestacao-contas-lrf.php', 'real' => true],
     ],
     'Relatório de Gestão e Atividades' => [
-        ['icone' => 'fa-calendar-days', 'nome' => 'Relatórios Anuais', 'link' => 'relatorios-gestao.php', 'real' => false],
-        ['icone' => 'fa-calendar-week', 'nome' => 'Relatórios Trimestrais', 'link' => 'relatorios-gestao.php', 'real' => false],
+        ['icone' => 'fa-calendar-days', 'nome' => 'Relatórios Anuais', 'link' => 'relatorios-gestao.php', 'real' => true],
+        ['icone' => 'fa-calendar-week', 'nome' => 'Relatórios Trimestrais', 'link' => 'relatorios-gestao.php', 'real' => true],
     ],
     'Ouvidoria' => [
         ['icone' => 'fa-comments', 'nome' => 'Site da Ouvidoria', 'link' => 'ouvidoria.php', 'real' => true],
@@ -89,11 +89,11 @@ $secoes = [
         ['icone' => 'fa-chart-simple', 'nome' => 'Relatórios e Dados', 'link' => 'relatorio-esic.php', 'real' => true],
     ],
     'LGPD e Governo Digital' => [
-        ['icone' => 'fa-shield-halved', 'nome' => 'LGPD e Dados Abertos', 'link' => 'lgpd-dados-abertos.php', 'real' => false],
+        ['icone' => 'fa-shield-halved', 'nome' => 'LGPD e Dados Abertos', 'link' => 'lgpd-dados-abertos.php', 'real' => true],
     ],
     'Demais Informações' => [
         ['icone' => 'fa-gavel', 'nome' => 'Atos Normativos (Leis, Decretos, Portarias...)', 'link' => 'leis.php', 'real' => true],
-        ['icone' => 'fa-boxes-stacked', 'nome' => 'Patrimônio e Almoxarifado', 'link' => 'patrimonio.php', 'real' => false],
+        ['icone' => 'fa-boxes-stacked', 'nome' => 'Patrimônio e Almoxarifado', 'link' => 'patrimonio.php', 'real' => true],
     ],
 ];
 

@@ -2,7 +2,7 @@
 /**
  * Template de "categoria pendente". O arquivo que inclui define antes:
  *   $tituloPaginaInterna, $subtituloPaginaInterna
- *   $itensPendentes = [['titulo' => '...', 'desc' => '...'], ...]
+ *   $itensPendentes = [['titulo' => '...', 'desc' => '...'], ...]dsdsdsd
  */
 include 'includes/header.php';
 include 'includes/pagina-header.php';
